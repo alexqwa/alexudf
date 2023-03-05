@@ -1,8 +1,23 @@
+import { FormEvent, useState } from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { StyledContent, StyledOverlay } from "../../stitches/stitchesModal"
 import { X } from "phosphor-react"
 
 export function ModalContact() {
+  const [message, setMessage] = useState("")
+
+  function handleSendMessage(event: FormEvent) {
+    event.preventDefault()
+
+    if (!message) {
+      alert("Você não digitou nenhuma mensagem!")
+    } else {
+      alert("Mensagem enviada com sucesso!")
+    }
+
+    setMessage("")
+  }
+
   return (
     <Dialog.Portal>
       <StyledOverlay className="z-[9999] bg-black/60 inset-0 fixed" />
@@ -15,11 +30,16 @@ export function ModalContact() {
             <X size={24} color="#fff" />
           </Dialog.Close>
         </div>
-        <form className="w-full flex flex-col mt-8">
-          <input
-            className="text-white text-sm bg-zinc-900 rounded-lg p-4 placeholder:text-sm outline-none border-2 border-transparent focus:border-violet-500 transition-all"
-            type="text"
+        <form
+          onSubmit={handleSendMessage}
+          className="w-full flex flex-col mt-8"
+        >
+          <textarea
+            className="text-white text-sm bg-zinc-900 rounded-lg p-4 placeholder:text-sm outline-none border-2 border-transparent focus:border-violet-500 transition-all min-h-[80px]"
             placeholder="Digite sua mensagem"
+            onChange={(event) => setMessage(event.target.value)}
+            value={message}
+            required
           />
           <button
             type="submit"
