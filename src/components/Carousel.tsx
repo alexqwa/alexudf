@@ -2,8 +2,11 @@ import { CaretLeft, CaretRight } from "phosphor-react"
 
 import { Card } from "./Card"
 import { Title } from "./Global/Title"
+import { useProjectsQuery } from "../generated/graphql"
 
 export function Carousel() {
+  const [{ data }] = useProjectsQuery()
+
   return (
     <section className="w-full bg-zinc-800/50 border-y border-rifas-border-line my-20 pt-10 pb-6 flex flex-col items-center justify-center">
       <div className="max-w-[1120px] w-full m-auto flex flex-col items-start">
@@ -12,26 +15,16 @@ export function Carousel() {
           <button className="p-4 bg-zinc-800/80 hover:bg-zinc-800 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-rifas-border-line rounded-full w-fit h-fit absolute shadow-md shadow-black/30 transition-all">
             <CaretLeft size={24} color="#fff" />
           </button>
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
+          {data?.projects.map((item) => {
+            return (
+              <Card
+                key={item.id}
+                url={item.slug}
+                title={item.title}
+                subtitle={item.subtitle}
+              />
+            )
+          })}
           <button className="p-4 bg-zinc-800/80 hover:bg-zinc-800 top-1/2 right-0 translate-x-1/2 -translate-y-1/2 border border-rifas-border-line rounded-full w-fit h-fit absolute shadow-md shadow-black/30 transition-all">
             <CaretRight size={24} color="#fff" />
           </button>

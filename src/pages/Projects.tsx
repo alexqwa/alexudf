@@ -4,8 +4,10 @@ import { Card } from "../components/Card"
 import { Header } from "../components/Global/Header"
 import { Footer } from "../components/Global/Footer"
 import { Title } from "../components/Global/Title"
+import { useProjectsQuery } from "../generated/graphql"
 
 export function Projects() {
+  const [{ data }] = useProjectsQuery()
   return (
     <>
       <Header />
@@ -25,36 +27,16 @@ export function Projects() {
           </div>
         </header>
         <main className="mt-10 grid grid-cols-4 gap-4">
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
-          <Card
-            url="https://blog.rocketseat.com.br/content/images/2019/03/React-Hooks-Comoutilizar--motivac-o-es-eexemplos-pra-ticos.png"
-            title="Projeto: Rifas Green"
-            subtitle="Site feito para sorteio e venda de rifas."
-          />
+          {data?.projects.map((item) => {
+            return (
+              <Card
+                key={item.id}
+                title={item.title}
+                subtitle={item.subtitle}
+                url={item.slug}
+              />
+            )
+          })}
         </main>
       </section>
       <Footer />

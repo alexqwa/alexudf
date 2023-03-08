@@ -15,7 +15,7 @@ export function Home() {
       <Header />
 
       <main className="flex flex-col items-center justify-center">
-        <section className="w-full flex items-start justify-center pt-20 gap-16">
+        <section className="w-full flex items-start justify-center mt-20 gap-16">
           <div className="max-w-[540px] flex flex-col gap-4">
             <Title title="Olá, eu sou o Alexandre" />
             <p className="text-white/80 font-light text-base">
