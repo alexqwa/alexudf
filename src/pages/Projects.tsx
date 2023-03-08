@@ -8,11 +8,12 @@ export function Projects() {
   return (
     <>
       <Header />
-      <section className="max-w-[1120px] m-auto items-center justify-center pt-20">
+      <section className="max-w-[1120px] m-auto items-center justify-center my-20">
         <header className="flex items-center justify-between">
-          <h1 className="text-white font-extrabold text-3xl">
-            Lista de projetos
-          </h1>
+          <div className="flex flex-col items-start justify-start w-fit">
+            <h1 className="text-white font-bold text-4xl">Meus projetos</h1>
+            <div className="mt-3 w-[50%] h-[1.5px] bg-gradient-to-r from-violet-500 to-transparent" />
+          </div>
           <div className="bg-zinc-800/80 px-4 py-3 rounded-lg flex items-center justify-center gap-3 border border-rifas-border-line">
             <button className="bg-zinc-900 border border-rifas-border-line p-2 rounded-lg hover:bg-violet-500 transition-all">
               <ArrowUp size={18} color="#fff" />

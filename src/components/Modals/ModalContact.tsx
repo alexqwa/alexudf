@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { StyledContent, StyledOverlay } from "../../stitches/stitchesModal"
-import { X } from "phosphor-react"
+import { Envelope, X } from "phosphor-react"
 
 export function ModalContact() {
   const [message, setMessage] = useState("")

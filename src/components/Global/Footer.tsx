@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export function Footer() {
   return (
-    <footer className="mt-10 py-6 border-t bg-zinc-800/50 border-rifas-border-line z-[9998]">
+    <footer className="py-6 border-t bg-zinc-800/50 border-rifas-border-line z-[9998]">
       <div className="max-w-[1120px] m-auto items-center justify-between flex">
         <h1 className="text-white/80 text-sm">
           Feito por{" "}
