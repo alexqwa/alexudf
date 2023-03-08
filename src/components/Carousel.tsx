@@ -1,15 +1,13 @@
 import { CaretLeft, CaretRight } from "phosphor-react"
 
 import { Card } from "./Card"
+import { Title } from "./Global/Title"
 
 export function Carousel() {
   return (
     <section className="w-full bg-zinc-800/50 border-y border-rifas-border-line my-20 pt-10 pb-6 flex flex-col items-center justify-center">
       <div className="max-w-[1120px] w-full m-auto flex flex-col items-start">
-        <div className="flex flex-col items-start justify-start">
-          <h1 className="text-white font-bold text-3xl">Projetos recentes</h1>
-          <div className="mt-3 w-[50%] h-[1.5px] bg-gradient-to-r from-violet-500 to-transparent" />
-        </div>
+        <Title title="Projetos recentes" />
         <div className="grid grid-cols-4 gap-4 mt-8 relative mb-8">
           <button className="p-4 bg-zinc-800/80 hover:bg-zinc-800 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-rifas-border-line rounded-full w-fit h-fit absolute shadow-md shadow-black/30 transition-all">
             <CaretLeft size={24} color="#fff" />

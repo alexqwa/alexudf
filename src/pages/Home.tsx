@@ -3,10 +3,11 @@ import { ArrowRight } from "phosphor-react"
 
 import avatarImg from "../assets/avatar.jpg"
 
+import { Title } from "../components/Global/Title"
 import { Header } from "../components/Global/Header"
 import { Footer } from "../components/Global/Footer"
-import { Carousel } from "../components/Carousel"
 import { Abilities } from "../components/Abilities"
+import { Carousel } from "../components/Carousel"
 
 export function Home() {
   return (
@@ -16,9 +17,7 @@ export function Home() {
       <main className="flex flex-col items-center justify-center">
         <section className="w-full flex items-start justify-center pt-20 gap-16">
           <div className="max-w-[540px] flex flex-col gap-4">
-            <h1 className="text-white font-extrabold text-4xl">
-              Olá, eu sou o Alexandre
-            </h1>
+            <Title title="Olá, eu sou o Alexandre" />
             <p className="text-white/80 font-light text-base">
               Um profissional apaixonado por criar soluções criativas e
               impactantes, buscando sempre a excelência em cada projeto que me
@@ -42,8 +41,8 @@ export function Home() {
         <Abilities />
         <Carousel />
         <section className="max-w-[1120px] w-full m-auto flex flex-col items-start justify-center mb-20">
-          <h1 className="text-white font-bold text-3xl">Formação acadêmica</h1>
-          <p className="font-light text-white/80 text-sm mt-2 mb-4">
+          <Title title="Formação acadêmica" />
+          <p className="font-light text-white/80 text-sm mt-4 mb-4">
             Trajetória completa da minha formação
           </p>
           <div className="bg-violet-500 w-[4px] h-[200px] rounded-full relative mt-6">

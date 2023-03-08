@@ -1,15 +1,13 @@
-import { useEffect } from "react"
-
 import { Header } from "../components/Global/Header"
+import { Title } from "../components/Global/Title"
 
-export async function ProjectDetails() {
-  const api = await fetch("https://api.github.com/users/alexqwa/repos")
-  const repos = await api.json()
-
+export function ProjectDetails() {
   return (
     <>
       <Header />
-      <pre>{JSON.stringify(repos, null, 2)}</pre>
+      <main className="max-w-[1120px] m-auto mt-20">
+        <Title title="Detalhes do projeto" />
+      </main>
     </>
   )
 }
