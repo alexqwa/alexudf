@@ -15,7 +15,7 @@ export function Carousel() {
           <button className="p-4 bg-zinc-800/80 hover:bg-zinc-800 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-rifas-border-line rounded-full w-fit h-fit absolute shadow-md shadow-black/30 transition-all">
             <CaretLeft size={24} color="#fff" />
           </button>
-          {data?.projects.map((item) => {
+          {data?.projects.slice(0, 4).map((item, index) => {
             return (
               <Card
                 key={item.id}

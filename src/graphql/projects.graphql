@@ -1,5 +1,5 @@
 query Projects {
-  projects {
+  projects(orderBy: createdAt_DESC) {
     slug
     subtitle
     title

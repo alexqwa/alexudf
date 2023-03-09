@@ -15,9 +15,12 @@ export function Card({ url, title, subtitle }: CardProps) {
       />
 
       <footer className="max-w-[80%] w-full my-6 flex flex-1 flex-col items-start justify-between m-auto">
-        <h1 className="text-white/80 font-normal text-base">
+        <Link
+          to={url}
+          className="text-white/80 font-normal text-base hover:underline transition-all"
+        >
           Projeto: {title}
-        </h1>
+        </Link>
         <p className="text-slate-400 text-xs font-light mb-4">{subtitle}</p>
         <Link
           to={url}

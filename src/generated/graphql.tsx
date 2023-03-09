@@ -3564,7 +3564,7 @@ export function useProjectQuery(options: Omit<Urql.UseQueryArgs<ProjectQueryVari
 };
 export const ProjectsDocument = gql`
     query Projects {
-  projects {
+  projects(orderBy: createdAt_DESC) {
     slug
     subtitle
     title

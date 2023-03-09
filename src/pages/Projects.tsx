@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom"
 import { Faders, ArrowUp, ArrowDown } from "phosphor-react"
 
 import { Card } from "../components/Card"
 import { Header } from "../components/Global/Header"
 import { Footer } from "../components/Global/Footer"
 import { Title } from "../components/Global/Title"
+
 import { useProjectsQuery } from "../generated/graphql"
 
 export function Projects() {
   const [{ data }] = useProjectsQuery()
+
   return (
     <>
       <Header />
@@ -26,8 +29,8 @@ export function Projects() {
             </button>
           </div>
         </header>
-        <main className="mt-10 grid grid-cols-4 gap-4">
-          {data?.projects.map((item) => {
+        <main className="relative my-10 grid grid-cols-4 gap-4">
+          {data?.projects.slice(0, 8).map((item, index) => {
             return (
               <Card
                 key={item.id}
